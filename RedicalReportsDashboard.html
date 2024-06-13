@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redical Reports Dashboard</title>
+    <!-- Include Bootstrap library for responsive design -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+  html {height: 100%;
+    margin: 0;
+	overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;}
+
+body {height: 100%;
+  	  margin: 0;
+	overflow: hidden;
+  	  font-family: 'Segoe UI', sans-serif;
+ 	}
+
+h2{ font-size: 17px; color: white;text-align: center;
+}
+.sidebar {height: 100%;
+    width: 15%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;}
+
+
+
+
+.sidebar-footer a::before {
+    content: "\279C";
+font-size: 25px;
+
+
+    /* Add additional styling as needed */
+    margin-right: 5px; /* Space between icon and text */
+    margin-bottom: 5px;
+    font-family: 'Segoe UI Symbol'; /* Ensure the font supports the icon */
+float: left;
+transform: rotate(180deg);
+
+  }
+
+.sidebar a, .sidebar a.submenu {padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 24px;
+    color: #ffffff;
+    display: block;
+   
+}
+
+
+.sidebar a.submenu {font-size: 12px;
+    padding-left: 10px;}
+
+.sidebar a:hover{color: rgb(0, 0, 0);
+    font-weight:bold;
+background-color:#808080 ;
+}
+
+
+
+
+.collapsible:hover{color: white;}
+
+
+ header img { max-width: 100px;
+    height:  40px;
+    margin-right: 20px;}
+
+  .collapsible {cursor: pointer;
+   
+    border:none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    background-color: black;
+    color: white;
+    padding: 7px 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline:none;
+    transition: background-color 0.3s;
+    
+}
+.collapsible:after {content: '\02C5';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transition: transform 0.3s;
+
+   
+
+}
+.active:after {
+    transform: rotate(180deg);
+}
+.content {display: none;
+    overflow: hidden;
+    background-color: black;
+ }
+.content a { font-size: 20px;color: white; }
+.main { height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+ }
+.go-back {font-size: 18px;
+    color: white;
+    padding: 180%;
+    cursor: pointer;
+    padding-top:calc(30rem);}
+
+
+
+
+  header h2 {margin: 0;
+    font-size: 24px;}
+iframe { height: 100%;
+    width: 100%;
+    border: none;}
+header {background: #333;
+    color: #fff;
+    padding:0.2rem;
+      display: flex;
+    justify-content: left;
+    align-items: center;}
+
+footer {
+    width: 100%; /* Ensures the footer extends the full width of the page */
+    padding: 0.2rem; /* Adjust the padding to control the vertical size of the footer */
+    background: #333; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: left;
+    position: absolute; /* Positions the footer at the bottom */
+    bottom: 0; /* Aligns the footer to the bottom */
+    left: 0; /* Aligns the footer to the left side */
+    right: 0; /* Aligns the footer to the right side */
+ font-size: 0.5rem; /* Reduced font size */
+
+}
+    </style>
+</head>
+<body><header> <img src="logo.png" alt="Company Logo">
+   
+</header>
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <!-- Sidebar section -->
+    <div class="sidebar">
+
+
+      <h2>Redical Reports</h2>
+
+      <button type="button" class="collapsible">Leasing Dashboard</button>
+      <div class="content">
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Vacant Units')">- Vacant Units</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Break Events')">- Break Events</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Expiry Events')">- Expiry Events</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('TAW')">- TAW</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('AM comments')">- AM comments</a>
+	<a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Tenant Audit')">- Tenant Audit</a>
+	<a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Rents')">- Rents</a>
+      </div>
+
+  <button type="button" class="collapsible">Gross potential rent</button>
+      <div class="content">
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Gross-info')">- Info</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('Rent')">- Rent</a>
+      </div>
+
+      <button type="button" class="collapsible">Activity Reports</button>
+      <div class="content">
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('info')">- Info</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('basic')">- Basic recent inputs report</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('viewings')">- Viewings</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('todos')">- Todos</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('log')">- Log activity feed</a>
+      </div>
+          <!-- Add the new menu items here -->
+      <button type="button" class="collapsible">Footfall</button>
+      <div class="content" id="footfall">
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-info')">- Info</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-date')">- Footfall to Date</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-monthly')">- Monthly Footfall Comparison</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-comparison')">- Footfall Comparison</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-custom')">- Footfall Custom Comparison</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-Hourly')">- Hourly Footfall</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-Hourly-years')">- Hourly Footfall-Years</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('footfall-Hourly-periods')">- Hourly Footfall-Periods</a>
+      </div>
+      <button type="button" class="collapsible">Turnover</button>
+      <div class="content" id="turnover">
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('turnover-info')">- Info</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('turnover-overview')">- Centre overview</a>
+        <a href="#" class="submenu" onclick="event.preventDefault(); event.stopPropagation(); loadDashboard('turnover-tenant')">- Tenant Specific Certified Data</a>
+      </div>
+<div class="sidebar-footer">
+    <a href="https://redicalportal.z1.web.core.windows.net/" class="go-back" onclick="history.back()">Go Back</a>
+  </div>
+<footer>
+        © 2024. Redical Limited, UK Company Number 15302956. All rights reserved.
+    </footer>
+    </div>
+    <!-- Main body section -->
+    <div class="col main">
+      <iframe id="dashboard-iframe" title="Full Page Activity Report" src="" frameborder="0" allowFullScreen="true"></iframe>
+
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/powerbi-client/dist/powerbi.min.js"></script>
+<script>
+function loadDashboard(dashboardName) {
+    var iframe = document.getElementById('dashboard-iframe');
+    var urls = {
+
+	'Vacant Units': 'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289',
+	'Break Events': 'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection',
+	'Expiry Events':'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=29cd223761e725381d0b',
+	'TAW':'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectiona592818d04134d501402',
+	'AM comments':'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectione57885cd3e81ad0310c1',
+	'Tenant Audit':'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionf7d8d54220c8e70043a0',
+	'Rents':'https://app.powerbi.com/reportEmbed?reportId=fde7460f-566a-4e7e-a9ff-5fda4eab92c7&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionb56c669e5e3a730d738b',
+	
+        'Gross-info': 'https://app.powerbi.com/reportEmbed?reportId=b3c9fc45-ebc5-4e52-97e1-f4ee95a491aa&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionec0e8c8f631c2e269504',
+	    'Rent': 'https://app.powerbi.com/reportEmbed?reportId=b3c9fc45-ebc5-4e52-97e1-f4ee95a491aa&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionf6b8af691a343258cb59',
+
+        'info': 'https://app.powerbi.com/reportEmbed?reportId=c03acef0-d12d-42b5-98e5-7fba441727c4&appId=e238f576-1b01-42f2-bae2-062da26da67b&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289',
+        'basic': 'https://app.powerbi.com/reportEmbed?reportId=89449161-94dc-4272-8ae0-ad9d7d218494&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionc5aacecb563a197b37a9',
+        'viewings': 'https://app.powerbi.com/reportEmbed?reportId=89449161-94dc-4272-8ae0-ad9d7d218494&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection1e32839beea2fc3ee457',
+        'todos': 'https://app.powerbi.com/reportEmbed?reportId=89449161-94dc-4272-8ae0-ad9d7d218494&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection0ab346257a4d2d500cda',
+        'log': 'https://app.powerbi.com/reportEmbed?reportId=89449161-94dc-4272-8ae0-ad9d7d218494&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection1e29a59936d14fd64754',
+
+        'footfall-info': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionec0e8c8f631c2e269504',
+        'footfall-date': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289',
+        'footfall-monthly': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection597b5c6a751c91cb6e39',
+        'footfall-comparison': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection6971045d1cc72315a41b',
+        'footfall-custom': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectionaa4fe4f1cacbec8e9686',
+        'footfall-Hourly':'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSectioncae8bcd149f64ae8b242',
+        'footfall-Hourly-years': 'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection6ecf175c2dd427443251',
+        'footfall-Hourly-periods':'https://app.powerbi.com/reportEmbed?reportId=c975c6c7-a1fa-440b-8bea-46039c7a1834&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection9553944be01863680b9c',
+
+        'turnover-info': 'https://app.powerbi.com/reportEmbed?reportId=878f4b33-b546-4729-9710-e32814b8bf14&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection444f9c12010bd5da207d',
+        'turnover-overview': 'https://app.powerbi.com/reportEmbed?reportId=878f4b33-b546-4729-9710-e32814b8bf14&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection',
+        'turnover-tenant': 'https://app.powerbi.com/reportEmbed?reportId=878f4b33-b546-4729-9710-e32814b8bf14&autoAuth=true&ctid=6d6620ce-c8d2-48e4-a418-24238f4b2289&pageName=ReportSection59df909dc2bd5c04211d'
+    };
+    var url = urls[dashboardName];
+    if (url) {
+        iframe.src = url;
+    } else {
+        console.error('Dashboard not found:', dashboardName);
+    }
+}
+
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function(event) {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+        loadDashboard(this.textContent.trim()); // Call loadDashboard function here
+    });
+}
+</script>
+</body>
+</html>
