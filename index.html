@@ -1,1 +1,182 @@
-<html><head><title>Sample Website</title></head><body><h1>Sample Website</h1><p>Demo by Deepak....</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redical Portal</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('Background.png'); /* Path to the uploaded background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: fadeIn 2s ease-in-out;
+position: relative; /* Added to position the footer absolutely within the body */
+    min-height: 100vh;
+        }
+        /* Style the header with a gradient background and a company logo */
+        header {
+            
+            color: #fff;
+            padding: 1rem 0;
+            text-align: right;
+        }
+        header img {
+            width: 150px;
+        }
+        /* Style the welcome message with a different font and a box shadow */
+        .welcome-message {
+            text-align: left;
+            width: 50%;
+            font-size: 1.5em;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            color: #fff;
+            box-shadow: 0 8px 6px -6px black;
+      
+        }
+        /* Style the main section with a flex layout and a pseudo-element for the background */
+        main {
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 80vh;
+            position: relative;
+            z-index: 1;
+            font-size: 1.8em;
+        }
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+
+
+        }
+        /* Style the dashboard tiles with a white background, a border, a box shadow, and a hover effect */
+        .dashboard-tile {
+            background: #F5B041;
+            border: 1px solid #ddd;
+          
+            width: 30%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .dashboard-tile:hover {
+            transform: scale(1.05);
+        }
+        .dashboard-tile iframe {
+            width: 100%;
+            height: 300px;
+        }
+        /* Style the external links with a blue background, a border radius, a hover effect, and an icon */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+       	    cursor: pointer;     
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            background: #F5B041;
+	    color: black;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        /* Define the animation for the fade in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+footer {
+    width: 100%; /* Ensures the footer extends the full width of the page */
+    padding: 0.2rem; /* Adjust the padding to control the vertical size of the footer */
+    background: #333; /* Footer background color */
+    color: #fff; /* Footer text color */
+    text-align: left;
+    position: absolute; /* Positions the footer at the bottom */
+    bottom: 0; /* Aligns the footer to the bottom */
+    left: 0; /* Aligns the footer to the left side */
+    right: 0; /* Aligns the footer to the right side */
+ font-size: 0.5rem; /* Reduced font size */
+}
+
+b{font-size: 0.7rem;
+    width: 100%;
+color: #9d9d9d; }
+
+c{font-size: 2.5em;
+ width: 100%;
+            text-align: center;
+            color: #fff; 
+position: absolute;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Company Logo">
+        <div class="welcome-message" id="welcome-message"></div>
+    </header>
+
+ <div>
+<c>Property and Asset Management</c>
+       </div>
+    <main>
+
+        <!-- Create three dashboard tiles with different content -->
+
+<div id="external-link-1">
+            <a href="RedicalReportsDashboard.html"><i class="fas fa-external-link-alt"></i>Redical Reports</a>
+<div>
+<b>Click above link for Redical Internal Dashboard like Footfall, Activity & Turnover</b>
+       </div> </div>
+
+        <div id="external-link-1">
+            <a href="https://104029redic.yardione.com/"><i class="fas fa-external-link-alt"></i>Yardi Voyager</a>
+<div>
+<b>Click above link for Yardi Voyager application</b>
+       </div> </div>
+        </div>
+        <div id="external-link-2">
+            <a href="https://104029redic.elevate.cafe/retailmanagernet/content/#/app/oideals"><i class="fas fa-external-link-alt"></i>Deal Manager</a>
+<div>
+<b>Click above link for Deal Manager application</b>
+       </div>
+        </div>
+    </main>
+
+<footer>
+        © 2024. Redical Limited, UK Company Number 15302956. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript for dynamic welcome message
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date();
+            var hour = today.getHours();
+            var welcomeText = 'Welcome to Redical!';
+            if (hour < 12) welcomeText = 'Good Morning!';
+            else if (hour < 18) welcomeText = 'Good Afternoon!';
+            else welcomeText = 'Good Evening!';
+            document.getElementById('welcome-message').textContent = welcomeText;
+        });
+    </script>
+</body>
+</html>
